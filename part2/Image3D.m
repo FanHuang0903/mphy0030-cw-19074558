@@ -29,8 +29,8 @@ classdef Image3D
             image.z = (0:image.size(3)-1)*voxdims(3);
             
           %form 3D matrices containing all the pixel coordinates
-           [image.X, image.Y,image.Z] = meshgrid(image.x,image.y,image.z);
-           image.range = [min(image.X),max(image.X);min(image.Y),max(image.Y);min(image.Z),max(image.Z)];
+           [image.X,image.Y,image.Z] = meshgrid(image.x,image.y,image.z);
+           image.range = [min(image.x),max(image.x);min(image.y),max(image.y);min(image.z),max(image.z)];
         end
         
         
