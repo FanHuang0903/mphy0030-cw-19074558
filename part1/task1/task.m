@@ -1,5 +1,6 @@
-% 
+% written for coursework part 1 task 1
 % author: FanHuang
+% student number: 19074558
 %
 % for UCL MPHY0030 2020-21
 %
@@ -10,6 +11,7 @@ ori=load('data_example_image.mat');
 simple_image_write('image','data_example_image.mat')
 %using simple_image_read function to read the file “data/image.sim” 
 sim=simple_image_read('image')
+%% visualization
 %plot 3 images at different z-coordinates
 figure
 subplot(321)
