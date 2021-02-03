@@ -29,31 +29,18 @@ classdef FreeFormDeformation
         end
 
         function target=random_transform_generator(image,precomputes_control_point,strength_of_the_randomness)
-        
-            target.control = zeros(size(source));
-            
-            for i = 1:prod(num)
-            
-            target.dx = strength_of_the_randomness *3* randn(1,1);
-            target.dy = strength_of_the_randomness *3* randn(1,1);
-            target.dz = strength_of_the_randomness *3* randn(1,1);
-            
-            
-            target.control(i,1) = source(i,1) + target.dx;
-            target.control(i,2) = source(i,2) + target.dy;
-            target.control(i,3) = source(i,3) + target.dz;
-            end  
+          
         end
         
 
-        function warpedimage=warp_image(image,target,control_point,RBFSpline.alpha,sigma)
+        function warpedimage=warp_image(image,target,control_point,RBFSpline_alpha,RBFSpline.sigma)
 
         end
         
         
         function warpedimage=random_transform(image,num,range,strength,lambda,sigma)
-            target=random_transform_generator(image,precomputes_control_point,strength_of_the_randomness);
-            warpedimage=warp_image(image,target,control_point,RBFSpline_alpha,RBFSpline_sigma);
+            moved_point=random_transform_generator(image,precomputes_control_point,strength_of_the_randomness);
+            warpedimage=warp_image(image,moved_point,control_point,RBFSpline_alpha,RBFSpline_sigma);
             
             figure
             imagesc(warpedimage(:,:,20))
